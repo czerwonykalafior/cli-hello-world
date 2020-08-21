@@ -1,0 +1,9 @@
+sudo: required
+services:
+    - docker
+
+before_install:
+    - docker build -t zajzajer/cli-hello-world -f Dockerfile.dev .
+
+script:
+    - docker run zajzajer/cli-hello-world npm run test -- --coverage
