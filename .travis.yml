@@ -9,7 +9,7 @@ before_install:
 script:
     - docker run -e CI=true zajzajer/cli-hello-world npm run test -- --coverage
 
-deploy:s
+deploy:
     provider: elasticbeanstalk
     region: "us-east-2"
     app: "cli-hello-world"
