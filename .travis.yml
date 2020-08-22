@@ -8,3 +8,15 @@ before_install:
 
 script:
     - docker run -e CI=true zajzajer/cli-hello-world npm run test -- --coverage
+
+deploy:s
+    provider: elasticbeanstalk
+    region: "us-east-2"
+    app: "cli-hello-world"
+    env: "CliHelloWorld-env"
+    bucket_name: "elasticbeanstalk-us-east-2-856194508268"
+    bucker_path": "cli-hello-world"
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
